@@ -1,6 +1,7 @@
-import 'package:auditore_v4/pages/home_page.dart';
-import 'package:auditore_v4/pages/page_container.dart';
-import 'package:auditore_v4/widgets/nav_bar.dart';
+import 'package:auditore_v4/widgets/contact_me.dart';
+import 'package:auditore_v4/widgets/page_container.dart';
+import 'package:auditore_v4/utils/extensions.dart';
+import 'package:auditore_v4/widgets/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:auditore_v4/constants.dart';
 
@@ -44,46 +45,74 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  late ScrollController _scrollController;
+  @override
+  void initState() {
+    _scrollController = ScrollController();
+    super.initState();
+  }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void homePressed() {
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.linear,
+    );
+    print("scroll");
   }
 
   double cornerRadiusSection = Values.CORNER_RADIUS_SECTION;
 
   @override
   Widget build(BuildContext context) {
+    print("Restarted");
     return Scaffold(
       appBar: AppBar(
-        title: Navbar(),
-        backgroundColor: Colors.black,
+        shadowColor: null,
+        toolbarHeight: 70.0,
+        backgroundColor: HexColor.fromHex(PageColors.BANNER_COLOR),
+        title: TextButton(
+          onPressed: () => homePressed(),
+          child: Text(
+            General.APP_TITLE,
+            style: TextStyle(
+                color: HexColor.fromHex(PageColors.BANNER_TEXT_COLOR),
+                fontSize: 20.0),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             PageContainer(
               title: General.APP_TITLE,
+              body: General.APP_DESCRIPTION,
               color: PageColors.BANNER_COLOR,
-              height: 800,
+              height: Values.TITLE_HEIGHT,
+              imageUrl: Images.TITLE_BACKGROUND,
               isBanner: true,
               isTitle: true,
             ),
             PageContainer(
               title: Questions.ONE,
               body: Answers.ONE,
-              height: 500,
-              imageUrl: "images/image_placeholder.png",
+              height: Values.SECTION_HEIGHT,
+              imageUrl: Images.IMAGE_ONE,
               color: PageColors.BACKGROUND_COLOR,
               cornerBottom: cornerRadiusSection,
             ),
             PageContainer(
               title: Questions.TWO,
               body: Answers.TWO,
-              height: 500,
-              imageUrl: "images/image_placeholder.png",
+              height: Values.SECTION_HEIGHT,
+              imageUrl: Images.IMAGE_TWO,
               color: PageColors.BACKGROUND_COLOR,
               isInverted: true,
               cornerTop: cornerRadiusSection,
@@ -92,22 +121,22 @@ class _MyHomePageState extends State<MyHomePage> {
               title: Banners.ONE,
               body: Banners.ONE_BODY,
               color: PageColors.BANNER_COLOR,
-              height: 500,
+              height: Values.SECTION_HEIGHT,
               isBanner: true,
             ),
             PageContainer(
               title: Questions.THREE,
               body: Answers.THREE,
-              height: 500,
-              imageUrl: "images/image_placeholder.png",
+              height: Values.SECTION_HEIGHT,
+              imageUrl: Images.IMAGE_THREE,
               color: PageColors.BACKGROUND_COLOR,
               cornerBottom: cornerRadiusSection,
             ),
             PageContainer(
               title: Questions.FOUR,
               body: Answers.FOUR,
-              height: 500,
-              imageUrl: "images/image_placeholder.png",
+              height: Values.SECTION_HEIGHT,
+              imageUrl: Images.IMAGE_FOUR,
               color: PageColors.BACKGROUND_COLOR,
               isInverted: true,
               cornerBottom: cornerRadiusSection,
@@ -116,18 +145,20 @@ class _MyHomePageState extends State<MyHomePage> {
             PageContainer(
               title: Questions.FIVE,
               body: Answers.FIVE,
-              height: 500,
-              imageUrl: "images/image_placeholder.png",
+              height: Values.SECTION_HEIGHT,
+              imageUrl: Images.IMAGE_FIVE,
               color: PageColors.BACKGROUND_COLOR,
               cornerTop: cornerRadiusSection,
             ),
-            PageContainer(
-              title: Banners.TWO,
-              body: Banners.TWO_BODY,
-              color: PageColors.BANNER_COLOR,
-              height: 500,
-              isBanner: true,
-            ),
+            // PageContainer(
+            //   title: Banners.TWO,
+            //   body: Banners.TWO_BODY,
+            //   color: PageColors.BANNER_COLOR,
+            //   height: Values.SECTION_HEIGHT,
+            //   isBanner: true,
+            // ),
+            const ContactMe(),
+            const Footer(),
           ],
         ),
       ),

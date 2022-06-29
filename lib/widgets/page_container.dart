@@ -1,5 +1,9 @@
+import 'dart:ui';
+
 import 'package:auditore_v4/constants.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/extensions.dart';
 
 class PageContainer extends StatelessWidget {
   final String title;
@@ -16,7 +20,7 @@ class PageContainer extends StatelessWidget {
     Key? key,
     this.title = "Empty Title",
     this.body = "",
-    this.imageUrl = "images/image_placeholder.png",
+    this.imageUrl = "",
     this.color = "#00FFFF",
     this.height = 500,
     this.isInverted = false,
@@ -109,7 +113,7 @@ class PageContainer extends StatelessWidget {
           body,
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 20.0,
+              fontSize: fontSize / 2,
               fontWeight: FontWeight.normal,
               color: HexColor.fromHex(PageColors.BANNER_TEXT_COLOR)),
         ),
@@ -117,17 +121,37 @@ class PageContainer extends StatelessWidget {
     }
 
     if (isBanner) {
-      return Container(
-        padding: const EdgeInsets.all(30),
-        color: HexColor.fromHex(color),
-        height: height / 2,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: bannerContent,
-          ),
-        ),
-      );
+      return imageUrl == ""
+          ? Container(
+              padding: const EdgeInsets.all(30),
+              color: HexColor.fromHex(color),
+              height: height / 2,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: bannerContent,
+                ),
+              ),
+            )
+          : Container(
+              padding: const EdgeInsets.all(30),
+              height: height / 2,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(imageUrl),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Center(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 7.0, sigmaY: 7.0),
+                  child: Wrap(
+                    alignment: WrapAlignment.center,
+                    children: bannerContent,
+                  ),
+                ),
+              ),
+            );
     }
 
     if (isMobile(context)) {
@@ -152,21 +176,4 @@ class PageContainer extends StatelessWidget {
       ),
     );
   }
-}
-
-extension HexColor on Color {
-  /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
-  static Color fromHex(String hexString) {
-    final buffer = StringBuffer();
-    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
-    buffer.write(hexString.replaceFirst('#', ''));
-    return Color(int.parse(buffer.toString(), radix: 16));
-  }
-
-  /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
-  String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
-      '${alpha.toRadixString(16).padLeft(2, '0')}'
-      '${red.toRadixString(16).padLeft(2, '0')}'
-      '${green.toRadixString(16).padLeft(2, '0')}'
-      '${blue.toRadixString(16).padLeft(2, '0')}';
 }
