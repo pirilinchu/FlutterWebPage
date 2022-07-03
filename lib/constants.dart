@@ -56,6 +56,7 @@ class PageColors {
   static String BACKGROUND_COLOR = "#F3F8FA";
   static String BANNER_COLOR = "#212939";
   static String BANNER_TEXT_COLOR = "#FFFFFF";
+  static String CONTACT_US_TITLE_COLOR = "#000000";
 }
 
 class Images {
@@ -73,4 +74,9 @@ class Links {
   static String FACEBOOK =
       "https://www.facebook.com/joseantonio.mendozacrespo.3";
   static String WHATSAPP = "https://wa.link/m6l2xc";
+}
+
+class ContactMeInfo {
+  static String TITLE = "¿Necesitas mas informacion?\nMandanos un mensaje";
+  static String BODY = "Contactanos";
 }
