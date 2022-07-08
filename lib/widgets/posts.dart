@@ -1,9 +1,14 @@
+import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:auditore_v4/constants.dart';
 import 'package:auditore_v4/models/Post.dart';
+import 'package:auditore_v4/utils/storage_service.dart';
 import 'package:auditore_v4/widgets/post_container.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import '../utils/extensions.dart';
 
@@ -26,6 +31,8 @@ class _PostsState extends State<Posts> {
 
   double spacerSize = 10.0;
 
+  Storage storage = Storage();
+
   bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < 750;
 
@@ -35,7 +42,9 @@ class _PostsState extends State<Posts> {
           child: GestureDetector(
             child: PostContainer(post: post),
             onTap: () {
-              openAlertBox(context);
+              openPDF(post);
+              //
+              //openAlertBox(context, post);
             },
           ),
         );
@@ -167,7 +176,8 @@ class _PostsState extends State<Posts> {
     );
   }
 
-  openAlertBox(BuildContext context) {
+  openAlertBox(BuildContext context, Post post) {
+    //final pdfController = PdfController(document: getPDF(post));
     return showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -177,8 +187,45 @@ class _PostsState extends State<Posts> {
               width: MediaQuery.of(context).size.width < 660
                   ? MediaQuery.of(context).size.width - 60
                   : 600,
+              child: Center(
+                child: FutureBuilder(
+                    future: getPDF(post),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Text('Error');
+                      } else if (snapshot.hasData) {
+                        final pdf = snapshot.data! as String;
+                        //openPDF(pdf);
+                        return SfPdfViewer.network(pdf);
+                      } else {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                    }),
+                // child: PdfView(
+                //   controller: pdfController,
+              ),
             ),
           );
         });
+  }
+
+  Future<String> getPDF(Post post) async {
+    final url = await storage.downloadPDF(post.pdf);
+    return url;
+    //return pdf;
+  }
+
+  Future<void> _launchInBrowser(Post post) async {
+    final url = Uri.parse(await storage.downloadPDF(post.pdf));
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void openPDF(Post post) {
+    _launchInBrowser(post);
   }
 }
