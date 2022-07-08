@@ -7,12 +7,11 @@ import '../utils/extensions.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
+  bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < 750;
 
   @override
   Widget build(BuildContext context) {
-    bool isMobile(BuildContext context) =>
-        MediaQuery.of(context).size.width < 750;
-
     Future<void> _launchInBrowser(Uri url) async {
       if (!await launchUrl(
         url,

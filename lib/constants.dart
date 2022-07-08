@@ -68,6 +68,7 @@ class Images {
   static String TITLE_BACKGROUND = "images/background_image.gif";
   static String WHATSAPP = "images/whatsapp.svg";
   static String FACEBOOK = "images/facebook.svg";
+  static String PLACE_HOLDER = "images/placeholder-image.png";
 }
 
 class Links {
@@ -79,4 +80,8 @@ class Links {
 class ContactMeInfo {
   static String TITLE = "¿Necesitas mas informacion?\nMandanos un mensaje";
   static String BODY = "Contactanos";
+}
+
+class PostsInfo {
+  static String TITLE = "Articulos publicados por nuestros profesionales";
 }

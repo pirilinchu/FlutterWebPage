@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "685343143928",
+    "project_id": "auditore-a6b13",
+    "storage_bucket": "auditore-a6b13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685343143928:android:b64b7969503c803fa8c80d",
+        "android_client_info": {
+          "package_name": "com.example.auditore_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685343143928-bf5q8trp7mppsvurs54bo2pk935gup24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6b2qabp-DhBK6UfZgoppePS2EEeUnV7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685343143928-bf5q8trp7mppsvurs54bo2pk935gup24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685343143928:android:7ef85a55e1736b12a8c80d",
+        "android_client_info": {
+          "package_name": "com.example.auditore_v4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685343143928-bf5q8trp7mppsvurs54bo2pk935gup24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6b2qabp-DhBK6UfZgoppePS2EEeUnV7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685343143928-bf5q8trp7mppsvurs54bo2pk935gup24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

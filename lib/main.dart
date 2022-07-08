@@ -1,11 +1,18 @@
+import 'package:auditore_v4/firebase_options.dart';
 import 'package:auditore_v4/widgets/contact_me.dart';
 import 'package:auditore_v4/widgets/page_container.dart';
 import 'package:auditore_v4/utils/extensions.dart';
 import 'package:auditore_v4/widgets/footer.dart';
+import 'package:auditore_v4/widgets/posts.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:auditore_v4/constants.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -31,6 +38,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Roboto",
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -157,6 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
             //   height: Values.SECTION_HEIGHT,
             //   isBanner: true,
             // ),
+            const Posts(),
             const ContactMe(),
             const Footer(),
           ],
