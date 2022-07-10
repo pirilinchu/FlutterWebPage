@@ -96,7 +96,6 @@ class Footer extends StatelessWidget {
               child: Container(
                 padding:
                     const EdgeInsets.only(left: 30.0, right: 30.0, top: 15.0),
-                color: Colors.red,
                 alignment: Alignment.centerLeft,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
