@@ -93,6 +93,8 @@ class PostContainer extends StatelessWidget {
                           child: Container(
                               child: Text(
                             post.body,
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 4,
                             style: TextStyle(
                                 fontWeight: FontWeight.w300, fontSize: 16.0),
                           ))),

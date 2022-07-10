@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
             PageContainer(
               title: Banners.ONE,
               body: Banners.ONE_BODY,
-              color: PageColors.BANNER_COLOR,
+              color: PageColors.BANNER_COLOR_SECTION,
               height: Values.SECTION_HEIGHT,
               isBanner: true,
             ),

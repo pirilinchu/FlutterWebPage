@@ -94,14 +94,18 @@ class Footer extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: const EdgeInsets.only(left: 30.0, right: 30.0),
+                padding:
+                    const EdgeInsets.only(left: 30.0, right: 30.0, top: 15.0),
+                color: Colors.red,
                 alignment: Alignment.centerLeft,
-                child: Wrap(
-                  direction: Axis.vertical,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       General.APP_ADDRESS,
                       style: infoStyle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       General.APP_LOCATION,

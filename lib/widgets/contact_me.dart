@@ -145,7 +145,7 @@ class _ContactMeState extends State<ContactMe> {
                             fixedSize: Size(100.0, 40.0),
                             primary: Colors.white,
                             backgroundColor:
-                                HexColor.fromHex(PageColors.BANNER_COLOR),
+                                HexColor.fromHex(PageColors.BUTTON_COLOR),
                           ),
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {

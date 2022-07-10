@@ -132,7 +132,7 @@ class _PostsState extends State<Posts> {
 
     return Container(
       height: 800.0,
-      color: Colors.blueGrey[200],
+      color: HexColor.fromHex(PageColors.BACKGROUND_COLOR_ONE).withAlpha(100),
       padding: EdgeInsets.only(bottom: 80),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

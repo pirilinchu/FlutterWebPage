@@ -1,11 +1,11 @@
 {
-    "name": "auditore_v4",
-    "short_name": "auditore_v4",
+    "name": "Auditore S.R.L.",
+    "short_name": "Auditore S.R.L.",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Asesores Financieros.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

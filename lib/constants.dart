@@ -4,7 +4,7 @@ class Values {
   static double CORNER_RADIUS_SECTION = 150.0;
   static double TITLE_HEIGHT = 800.0;
   static double SECTION_HEIGHT = 500.0;
-  static double FOOTER_HEIGHT = 250.0;
+  static double FOOTER_HEIGHT = 290.0;
 }
 
 class Home {
@@ -47,28 +47,33 @@ class General {
   static String APP_TITLE = "Auditore S.R.L.";
   static String APP_DESCRIPTION = "Asesores Financieros";
   static String APP_LOCATION = "Cochabamba - Bolivia";
-  static String APP_ADDRESS = "Calle Antezana #749 entre La Paz y Chuquisaca";
+  static String APP_ADDRESS =
+      "Calle Antezana #749 entre La Paz y Chuquisaca Calle Antezana #749 entre La Paz y Chuquisaca";
   static String APP_PHONES = "4022314 - 4016468";
   static String APP_MAIL = "auditore.srl@gmail.com";
 }
 
 class PageColors {
   static String BACKGROUND_COLOR = "#F3F8FA";
-  static String BANNER_COLOR = "#212939";
+  static String BANNER_COLOR = "#ce6c43";
+  static String BANNER_COLOR_SECTION = "#934033";
   static String BANNER_TEXT_COLOR = "#FFFFFF";
   static String CONTACT_US_TITLE_COLOR = "#000000";
+  static String BUTTON_COLOR = "#934033";
+  static String BACKGROUND_COLOR_ONE = "#57332b";
+  static String BACKGROUND_COLOR_TWO = "#ca6a3f";
 }
 
 class Images {
-  static String IMAGE_ONE = "images/image_placeholder.png";
-  static String IMAGE_TWO = "images/image_placeholder.png";
-  static String IMAGE_THREE = "images/image_placeholder.png";
-  static String IMAGE_FOUR = "images/image_placeholder.png";
-  static String IMAGE_FIVE = "images/image_placeholder.png";
-  static String TITLE_BACKGROUND = "images/background_image.gif";
-  static String WHATSAPP = "images/whatsapp.svg";
-  static String FACEBOOK = "images/facebook.svg";
-  static String PLACE_HOLDER = "images/placeholder-image.png";
+  static String IMAGE_ONE = "assets/images/image_placeholder.png";
+  static String IMAGE_TWO = "assets/images/image_placeholder.png";
+  static String IMAGE_THREE = "assets/images/image_placeholder.png";
+  static String IMAGE_FOUR = "assets/images/image_placeholder.png";
+  static String IMAGE_FIVE = "assets/images/image_placeholder.png";
+  static String TITLE_BACKGROUND = "assets/images/background_image.gif";
+  static String WHATSAPP = "assets/images/whatsapp.svg";
+  static String FACEBOOK = "assets/images/facebook.svg";
+  static String PLACE_HOLDER = "assets/images/placeholder-image.png";
 }
 
 class Links {
